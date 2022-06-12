@@ -1,10 +1,7 @@
 package main
 
-import "fmt"
+var x interface{}
 
 func main() {
-	x := 10
-	if !(x < 10) {
-		fmt.Print("Isso é um teste")
-	}
+
 }
