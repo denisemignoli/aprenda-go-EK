@@ -2,19 +2,38 @@ package main
 
 import "fmt"
 
+type pessoa struct {
+	nome  string
+	idade int
+}
+
+type profissional struct {
+	pessoa
+	titulo  string
+	salario int
+}
+
 func main() {
 
-	qualquercoisa := map[int]string{
-		123: "muito legal",
-		98:  "menos legal um pouquinho",
-		983: "esse é massa",
-		19:  "idade de ir pra festa",
+	pessoa1 := pessoa{
+		nome:  "Alfredo",
+		idade: 30,
 	}
 
-	fmt.Println(qualquercoisa)
+	pessoa2 := profissional{
+		pessoa: pessoa{
+			nome:  "Maricota",
+			idade: 31,
+		},
+		titulo:  "Pizzaiola",
+		salario: 10000,
+	}
 
-	delete(qualquercoisa, 123)
+	pessoa3 := pessoa{"Mauricio", 40}
+	pessoa4 := profissional{pessoa{"Vanderlei", 50}, "Político", 10000000}
 
-	fmt.Println(qualquercoisa)
-
+	fmt.Println(pessoa1.nome)
+	fmt.Println(pessoa2.pessoa.nome)
+	fmt.Println(pessoa3.nome)
+	fmt.Println(pessoa4)
 }
